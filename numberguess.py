@@ -1,25 +1,43 @@
 import random
 
-title = "Number guessing game"
-        print(title)
+print("Number guessing game")
 
-number = int(input("Guess the number between 1 - 5 :-"))
-        print(question)
+# randint function to generate the random number between 1 to 9
+number = random.randint(1, 9)
 
-if number === 5:
-        print("Congratulation! You have won")
+# number of chances to be given to the user to guess the number
+# or it is the inputs given by user into input box here number of chances are 5
+chances = 0
 
-elif number === 4:
-        print("You are so close! Keep guessing until you find the correct number")
+print("Guess a number (between 1 and 9):")
 
-elif number === 3:
-        print("Hint : If you add one plus one to me, you get the desired number. Now type out what am I")
+# While loop to count the number of chances
+while chances < 5:
 
-else:
-        print("Keep trying your best, that's more important being correct :)")
+    # Enter a number between 1 to 9
+    guess = int(input("Enter your guess:- "))
 
-while chances >5:
-        print("You lose :( Better luck next time!!")
+    # Compare the user entered number with the number to be guessed
 
-if not chances <5:
-        print("Oops! The number to be guessed was 5")
+    if guess == number:
+        # if number entered by user is same as the generated
+        # number by randint function then break from loop using loop
+        # control statement "break"
+        print("Congratulation YOU WON!!!")
+        break
+
+    # Check if the user entered number is smaller than the generated number
+    elif guess < number:
+        print("Your guess was too low: Guess a number higher than", guess)
+
+    # The user entered number is greater than the generated number
+    else:
+        print("Your guess was too high: Guess a number lower than", guess)
+
+    # Increase the value of chance by 1
+    chances += 1
+
+
+# Check whether the user guessed the correct number
+if not chances < 5:
+    print("YOU LOSE!!! The number is", number)
